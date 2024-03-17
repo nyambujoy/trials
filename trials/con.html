@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contructor</title>
+</head>
+
+<body>
+    <div class="content">
+        <input type="text" id="title">
+        <label for="title">Title</label>
+
+        <input type="text" id="description">
+        <label for="description">description</label>
+
+        <label for="priorty">priorty</label>
+        <select name="priorty" id="priorty">
+            <option value="high">high</option>
+            <option value="casual">casual</option>
+            <option value="low">low</option>
+        </select>
+
+        <button id="save">SAVE</button>
+        <BUtton id="delete">Del</BUtton>
+    </div>
+
+    <div class="displayDiv"></div>
+
+    <script>
+        function Notes(title, description) {
+            this.title = title
+            this.description = description
+        }
+        const notes = []
+        function addToList() {
+            const title = document.querySelector("#title").value
+            const desc = document.querySelector("#description").value
+            const priorty = document.querySelector("#priorty").value
+
+            const newNote = new Notes(title, description)
+        }
+
+        function displayOnScreen() {
+            for (let i = 0; i < notes.length; i++) {
+                const currentNote = notes[i].note;
+                const displayP = document.createElement("p");
+                displayP.setAttribute("contenteditable", "true")
+                displayP.classList.add("para");
+                displayP.textContent = currentNote;
+                displayDiv.appendChild(displayP);
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

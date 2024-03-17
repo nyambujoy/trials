@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        position: relative;
+        height: 200px;
+        width: 200px;
+    }
+
+    .title {
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        border-bottom: 1px solid black;
+    }
+
+    .description {
+        display: none;
+        font-size: 16px;
+    }
+
+    .title:hover+.description {
+        display: block;
+    }
+</style>
+
+
+<body>
+    <div class="container">
+        <div class="title" contenteditable="true">Cook dinner for family</div>
+        <div class="description" contenteditable="true">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptates ipsum fugiat rerum
+            impedit vel aperiam exercitationem, cupiditate consectetur excepturi repudiandae asperiores repellendus
+            labore quos autem, earum nemo eaque dignissimos. Itaque?
+        </div>
+        <div class="title" contenteditable="true">Cook dinner for family</div>
+        <div class="description" contenteditable="true">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptates ipsum fugiat rerum
+            impedit vel aperiam exercitationem, cupiditate consectetur excepturi repudiandae asperiores repellendus
+            labore quos autem, earum nemo eaque dignissimos. Itaque?
+        </div>
+        <div class="title" contenteditable="true">Cook dinner for family</div>
+        <div class="description" contenteditable="true">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptates ipsum fugiat rerum
+            impedit vel aperiam exercitationem, cupiditate consectetur excepturi repudiandae asperiores repellendus
+            labore quos autem, earum nemo eaque dignissimos. Itaque?
+        </div>
+        <div class="title" contenteditable="true">Cook dinner for family</div>
+        <div class="description" contenteditable="true">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptates ipsum fugiat rerum
+            impedit vel aperiam exercitationem, cupiditate consectetur excepturi repudiandae asperiores repellendus
+            labore quos autem, earum nemo eaque dignissimos. Itaque?
+        </div>
+    </div>
+</body>
+
+<script>
+    // Get references to the title and description elements
+    const titleElement = document.getElementById('title');
+    const descriptionElement = document.getElementById('description');
+
+    // Add event listener for when the container is hovered
+    titleElement.addEventListener('mouseover', function () {
+        descriptionElement.style.opacity = '1'; // Make description visible
+    });
+
+    titleElement.addEventListener('mouseout', function () {
+        descriptionElement.style.opacity = '0'; // Hide description
+    });
+
+    // Optionally, you can dynamically change the content of the title and description
+    titleElement.addEventListener('click', function () {
+        titleElement.textContent = 'New Title';
+        descriptionElement.textContent = 'New Description';
+    });
+
+</script>
+
+</html>

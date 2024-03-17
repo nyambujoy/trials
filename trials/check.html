@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Checkbox</title>
+    <style>
+        /* Hide the default checkbox */
+        .checkbox-input {
+            display: none;
+        }
+
+        /* Style the label to appear as a circular button */
+        .checkbox-label {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        /* Style the checked state */
+        .checkbox-input:checked+.checkbox-label {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        /* Center the checkmark */
+        .checkbox-input:checked+.checkbox-label::after {
+            content: '\2713';
+            font-size: 20px;
+            color: #fff;
+            display: block;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hidden checkbox input -->
+    <input type="checkbox" class="checkbox-input" id="myCheckbox">
+
+    <!-- Label associated with the checkbox -->
+    <label for="myCheckbox" class="checkbox-label"></label>
+
+    <script>
+        // JavaScript to handle the click event and toggle the checkbox state
+        document.addEventListener("DOMContentLoaded", function () {
+            var checkbox = document.getElementById('myCheckbox');
+            checkbox.addEventListener('click', function () {
+                if (checkbox.checked) {
+                    // Checkbox is checked
+                    // You can add your logic here when the checkbox is checked
+                    console.log("Checkbox is checked");
+                } else {
+                    // Checkbox is unchecked
+                    // You can add your logic here when the checkbox is unchecked
+                    console.log("Checkbox is unchecked");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
