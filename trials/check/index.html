@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .checkbox-label {
+        font-size: 2rem;
+    }
+</style>
+
+<body>
+    <div class="container">
+
+    </div>
+    <script>
+        const container = document.querySelector(".container")
+        const oneTask = document.createElement("div")
+        oneTask.className = 'oneTask'
+
+
+
+        const label = document.createElement("label");
+        label.setAttribute("for", "myCheckbox");
+        label.className = "checkbox-label";
+        label.textContent = "high priority"
+
+        const checkboxInput = document.createElement("input");
+        checkboxInput.setAttribute("type", "checkbox");
+        checkboxInput.className = "checkbox-input";
+        checkboxInput.id = "myCheckbox";
+
+        // const labelTitle = document.createElement("labelTitle");
+        // labelTitle.setAttribute("for", "taskTitle");
+        // labelTitle.className = "taskTitle";
+        // labelTitle.textContent = "title"
+
+        const title = document.createElement("div")
+        title.setAttribute("contentEditable", "true")
+        title.className = 'taskTitle'
+
+        // const labelDesc = document.createElement("labelDesc");
+        // labelDesc.setAttribute("for", "taskdescription");
+        // labelDesc.className = "taskdescription";
+        // labelDesc.textContent = "description"
+
+        const description = document.createElement("div")
+        description.setAttribute("contentEditable", "true")
+
+        description.className = 'taskdescription'
+
+
+        // const container = document.querySelector(".container");
+        const dateInput = document.createElement("input");
+        dateInput.setAttribute("type", "date");
+        dateInput.setAttribute("id", "taskDate");
+        dateInput.classList.add("taskdate");
+
+        const saveBtn = document.createElement("button")
+        saveBtn.className = 'tasksaveBtn'
+        saveBtn.innerHTML = 'Save'
+
+        oneTask.append(label, checkboxInput, title, description, dateInput, saveBtn)
+        // oneTask.append(label);
+        container.append(oneTask)
+
+        function Tasks(title, description, date, priority) {
+            this.title = title;
+            this.description = description;
+            this.date = date;
+            this.priority = priority;
+
+        }
+
+        const taskList = []
+
+        function handle() {
+
+
+            // const oneTask = document.querySelector('.oneTask');
+            const titleInput = document.querySelector('.taskTitle');
+            const descriptionInput = document.querySelector('.taskdescription');
+            const dateInput = document.querySelector(".taskdate");
+            const priorityInput = document.querySelector('.checkbox-input');
+
+            const newTask = new Tasks(titleInput.textContent, descriptionInput.textContent, dateInput.value, priorityInput.checked)
+            taskList.push(newTask);
+            // console.log(newTask)
+
+            for (let i = 0; i < taskList.length; i++) {
+                console.log(taskList[i])
+
+            }
+
+        }
+
+        const save = document.querySelector(".tasksaveBtn")
+        save.addEventListener("click", () => {
+            handle()
+        })
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
